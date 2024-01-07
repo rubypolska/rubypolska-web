@@ -1,0 +1,67 @@
+<%= provide :title, 'Blog' %>
+
+<section id="hero">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center">
+        <h1 class="bold">Ruby Polska Blog</h1>
+        <p>Join thousands of developers and accelerate towards your goals.<br> 
+        Transform your career into a journey of continuous evolution through<br/> the best technologies</p>
+        <br />
+
+        <%= link_to '', 
+        class: 'btn btn-default btn-lg' do %>
+          Signup our newsletter
+        <% end %>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="row">
+          <div class="col-md-8">
+            <div class="panel panel-default post">
+              <div class="panel-body">
+                <h5 class='category'>Docker</h5>
+                <h3 class='title bold'>Comandos Docker mais utilizados</h3>
+                
+                <ul class="info list-unstyled list-inline">
+                  <li>há 4 dias</li>
+                  <li>3 min de leitura</li>
+                </ul>
+              </div>
+            </div>            
+          </div>
+          
+          <div class="col-md-4">
+            <div class="panel panel-default post">
+              <div class="panel-body">
+                <h5 class='category'>Docker</h5>
+                <h3 class='title bold'>Comandos Docker mais utilizados</h3>
+                
+                <ul class="info list-unstyled list-inline">
+                  <li>há 4 dias</li>
+                  <li>3 min de leitura</li>
+                </ul>
+              </div>
+            </div>
+          </div>  
+        </div>
+
+        <div class="row">
+          <%= render @posts %>
+
+          <div class="col-md-12">
+            <div class='text-center'>
+              <%= paginate(@posts) %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,36 @@
+<%= provide :title, 'Home' %>
+
+<section id="hero">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class='title'>Ruby <br /><span class='polska'>Polska</span></h1>
+        <p class='subtitle'>Polish Ruby <span class='bold'>developers</span><br />and 
+          <span class='bold'>enthusiast</span> community.</p>
+        <ul class='list-unstyled list-inline actions'>
+          <li>
+            <%= link_to '',
+            class: 'btn btn-primary btn-lg' do %>
+              <i class="fa-brands fa-discord"></i>
+              Discord
+            <% end %>
+          </li>
+          <li>
+            <%= link_to '',
+              class: 'btn btn-primary btn-lg' do %>
+              <i class="fa-brands fa-instagram"></i>
+              Instagram
+            <% end %>
+          </li>
+          <li>
+            <%= link_to '',
+              class: 'btn btn-primary btn-lg' do %>
+              <i class="fa-brands fa-github"></i>
+              Github
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>

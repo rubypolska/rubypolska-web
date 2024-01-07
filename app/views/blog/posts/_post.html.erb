@@ -1,0 +1,13 @@
+<div class="col-md-4">
+  <div class="panel panel-default post">
+    <div class="panel-body">
+      <h5 class='category'>Docker</h5>
+      <h4 class='title bold'><%= link_to truncate(post.title, length: 40), blog_post_path(post) %></h4>
+      
+      <ul class="info list-unstyled list-inline">
+        <li><%= time_ago_in_words(post.created_at) %></li>
+        <li><%= post.reading_time %></li>
+      </ul>
+    </div>
+  </div>
+</div>

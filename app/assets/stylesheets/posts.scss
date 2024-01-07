@@ -1,0 +1,71 @@
+.posts
+{
+  #hero
+  {
+    position: relative;
+    background-color: #FFF;
+
+    h1
+    {
+      position: relative;
+      font-weight: bold;
+      font-size: 60px;
+    }
+
+    p
+    {
+      position: relative;
+      margin-top: 20px;
+      font-size: 18px;
+    }
+
+    a
+    {
+      position: relative;
+      border: 1px solid red;
+      color: red;
+    }
+  }
+
+  #content
+  {
+    position: relative;
+    padding-top: 40px;
+    padding-bottom: 40px;
+
+    .post
+    {
+      position: relative;
+      padding: 10px;
+      height: 300px;
+
+      a
+      {
+        position: relative;
+        text-decoration: none !important;
+        color: #000;
+      }
+
+      .category
+      {
+        margin-top: 50px;
+        margin-bottom: 0px;
+        color: red;
+      }
+
+      .title
+      {
+        position: relative;
+        margin-top: 8px;
+        font-size: 26px;
+      }
+
+      .info
+      {
+        position: absolute;
+        font-size: 14px;
+        bottom: 10px;
+      }
+    }
+  }
+}

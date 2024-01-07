@@ -1,0 +1,52 @@
+<footer id="footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+
+        <div class='row'>
+          <div class='col-md-8'>
+            <p>Ruby Polska, 2024 - <%= Date.today.year %></p>
+            <p>Made with <i class="fa-solid fa-heart"></i> in <strong>Radom</strong></p>
+            <p>&copy All rights reserved</p>
+          </div>
+
+          <div class="col-md-4">
+            <ul class='list-unstyled list-inline text-right'>
+              <li>
+                <%= link_to 'https://linkedin.com/in/rubypolska' do %>
+                  <i class="fa-brands fa-linkedin ico"></i>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to 'https://youtube.com/@rubypolska' do %>
+                  <i class="fa-brands fa-youtube ico"></i>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to 'https://instagram.com/rubypolska' do %>
+                  <i class="fa-brands fa-instagram ico"></i>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to 'https://github.com/rubypolska' do %>
+                  <i class="fa-brands fa-github ico"></i>
+                <% end %>
+              </li>
+              <li>
+                <%= link_to 'https://discord.com' do %>
+                  <i class="fa-brands fa-discord ico"></i>
+                <% end %>
+              </li>
+            </ul>
+            <p class='text-right'>
+              <%= link_to 'https://youtube.com/', class: 'email' do %>
+                <i class="fa-regular fa-envelope"></i>
+                witaj@rubypolska.pl
+              <% end %>
+            </p>   
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>

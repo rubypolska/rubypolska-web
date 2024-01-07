@@ -1,0 +1,140 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+@import 'bootstrap';
+
+body
+{
+  position: relative;
+  font-size: 16px;
+}
+
+.bold
+{
+  position: relative;
+  font-family: 'Sudo';
+  font-weight: bold;
+}
+
+.uppercase
+{
+  position: relative;
+  text-transform: uppercase;
+}
+
+header
+{
+  position: relative;
+
+  .navbar-default
+  {
+    position: relative;
+    background-color: #FFF;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    border-radius: 0px;
+    border-left: 0px;
+    border-right: 0px;
+    border-top: 0px;
+
+    .navbar-brand
+    {
+      position: relative;
+      font-weight: bold;
+    }
+  }
+}
+
+#hero
+{
+  position: relative;
+  margin-top: -20px;
+  padding-top: 120px;
+  padding-bottom: 120px;
+
+  .title
+  {
+    position: relative;
+    font-weight: bold;
+    margin-bottom: 10px;
+    font-size: 100px;
+
+    .polska
+    {
+      position: relative;
+      color: red;
+    }
+  }
+
+  .subtitle
+  {
+    position: relative;
+    font-size: 30px;
+  }
+
+  .actions
+  {
+    position: relative;
+    padding-top: 20px;
+
+    li {
+      .btn-primary
+      {
+        position: relative;
+        transition: 0.5s;
+        background-color: transparent !important;
+        border: 2px solid red !important;
+        color: red;
+
+        &:hover, &.over
+        {
+          position: relative;
+          transition: 0.5s;
+          background-color: red !important;
+          color: #FFF;
+        }
+      }
+    }
+  }
+}
+
+footer
+{
+  position: relative;
+  background-color: red;
+  padding-top: 60px;
+  padding-bottom: 50px;
+  color: #FFF;
+
+  .ico
+  {
+    position: relative;
+    border: 1px solid #FFF;
+    color: #FFF !important;
+    border: 1px solid #a8030e;
+    background-color:#a8030e;
+    border-radius: 25px;
+    padding: 12px;
+  }
+
+  .email
+  {
+    position: relative;
+    margin-top: 5px;
+    font-size: 18px;
+    text-decoration: none;
+    color: #FFF;
+  }
+}
