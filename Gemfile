@@ -58,12 +58,16 @@ group :development, :test do
   gem 'dotenv-rails'
   gem 'shoulda-matchers'
   gem 'overcommit'
-  gem 'rubocop'
   gem 'simplecov'
   gem 'annotate'
   gem 'rubycritic'
   gem 'factory_bot_rails'
   gem 'rails_best_practices'
+  gem 'rubocop', require: false
+  gem 'rubocop-rails', require: false
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rspec', require: false
+  gem 'rubocop-factory_bot', require: false
   gem 'foreman'
   gem 'brakeman'
   gem 'better_errors'
