@@ -1,13 +1,9 @@
-# Use an official Ruby runtime on Alpine as a parent image
-FROM ruby:2.7-alpine
+# Use an official Ruby runtime as a parent image
+FROM ruby:2.7
 
-# Install build dependencies for native gems and then clean up
-RUN apk add --no-cache --update build-base \
-    linux-headers \
-    git \
-    postgresql-dev \
-    tzdata \
-    && rm -rf /var/cache/apk/*
+# Install Node.js and build dependencies for native gems
+RUN apt-get update -qq && apt-get install -y build-essential libxml2-dev libxslt1-dev \
+    postgresql-client libpq-dev git tzdata nodejs npm
 
 # Set the working directory in the Docker container
 WORKDIR /usr/src/app
@@ -16,7 +12,7 @@ WORKDIR /usr/src/app
 COPY Gemfile* ./
 
 # Install any needed gems specified in Gemfile
-RUN bundle config set without 'development test' && bundle install --jobs 4
+RUN bundle install --jobs 4
 
 # Copy the rest of your app's source code from your host to your image filesystem.
 COPY . .

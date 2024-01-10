@@ -2,7 +2,7 @@
 #
 # Table name: newsletters
 #
-#  id         :integer          not null, primary key
+#  id         :bigint           not null, primary key
 #  cancel_at  :datetime
 #  email      :string
 #  name       :string
