@@ -3,7 +3,7 @@ FROM ruby:2.7
 
 # Install Node.js and build dependencies for native gems
 RUN apt-get update -qq && apt-get install -y build-essential libxml2-dev libxslt1-dev \
-    postgresql-client libpq-dev git tzdata nodejs npm
+    postgresql-client libpq-dev git tzdata nodejs npm graphviz
 
 # Set the working directory in the Docker container
 WORKDIR /usr/src/app
