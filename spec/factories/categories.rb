@@ -1,3 +1,4 @@
+
 # == Schema Information
 #
 # Table name: categories
@@ -15,8 +16,7 @@
 #
 FactoryBot.define do
   factory :category do
-    name { "MyString" }
-    slug { "MyString" }
-    user { nil }
+    name { FFaker::Lorem.word }
+    user
   end
 end

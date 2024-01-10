@@ -27,6 +27,7 @@ FactoryBot.define do
     title { FFaker::Lorem.sentence }
     body { FFaker::Lorem.paragraphs(rand(15..18)).join("<br/><br/>") }
     tags { FFaker::Lorem.words.join(', ') }
+    category
     user
 
     trait :published do
@@ -40,7 +41,11 @@ FactoryBot.define do
     after(:build) do |post, _evaluator|
       image_url = FFaker::Image.url
       file = URI.open(image_url)
-      post.thumbnail.attach(io: file, filename: 'temp_image.jpg', content_type: 'image/jpeg')
+      post.thumbnail.attach(
+        io: file, 
+        filename: 'temp_image.jpg', 
+        content_type: 'image/jpeg'
+      )
     end
   end
 end

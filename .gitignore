@@ -17,6 +17,15 @@
 !/log/.keep
 !/tmp/.keep
 
+# Ignore TODO file
+todo.txt
+
+# Ignore Mac OS Files
+.DS_Store
+
+# Coverage
+coverage/
+
 # Ignore uploaded files in development
 /storage/*
 !/storage/.keep

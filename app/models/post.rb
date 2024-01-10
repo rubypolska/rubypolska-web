@@ -40,6 +40,7 @@ class Post < ApplicationRecord
   validates :body, presence: true
 
   # Relationships
+  belongs_to :category
   belongs_to :user
 
   # Methods

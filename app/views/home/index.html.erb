@@ -1,4 +1,6 @@
 <%= provide :title, 'Home' %>
+<%= provide :description, '' %>
+<%= provide :keywords, '' %>
 
 <section id="hero">
   <div class="container">
@@ -6,25 +8,28 @@
       <div class="col-md-12">
         <h1 class='title'>Ruby <br /><span class='polska'>Polska</span></h1>
         <p class='subtitle'>Polish Ruby <span class='bold'>developers</span><br />and 
-          <span class='bold'>enthusiast</span> community.</p>
+        <span class='bold'>enthusiast</span> community.</p>
         <ul class='list-unstyled list-inline actions'>
           <li>
-            <%= link_to '',
+            <%= link_to 'https://discord.gg/myk3SHsz5g',
+            target: :_blank,
             class: 'btn btn-primary btn-lg' do %>
               <i class="fa-brands fa-discord"></i>
               Discord
             <% end %>
           </li>
           <li>
-            <%= link_to '',
+            <%= link_to 'https://instagram.com/rubypolska',
+            target: :_blank,
               class: 'btn btn-primary btn-lg' do %>
               <i class="fa-brands fa-instagram"></i>
               Instagram
             <% end %>
           </li>
           <li>
-            <%= link_to '',
-              class: 'btn btn-primary btn-lg' do %>
+            <%= link_to 'https://github.com/rubypolska',
+             target: :_blank, 
+             class: 'btn btn-primary btn-lg' do %>
               <i class="fa-brands fa-github"></i>
               Github
             <% end %>

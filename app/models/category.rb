@@ -14,5 +14,13 @@
 #  index_categories_on_user_id  (user_id)
 #
 class Category < ApplicationRecord
+  extend FriendlyId
+  friendly_id :name, use: [:slugged]
+
+  # Relationships
+  has_many :posts, dependent: :destroy
   belongs_to :user
+
+  # Validations
+  validates :name, presence: true, uniqueness: true
 end
