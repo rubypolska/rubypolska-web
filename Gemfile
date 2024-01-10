@@ -1,12 +1,10 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.6'
+ruby '2.7.8'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.8', '>= 5.2.8.1'
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
 # Use SCSS for stylesheets
@@ -20,7 +18,9 @@ gem 'jquery-rails'
 gem 'bootstrap3-rails'
 gem 'devise'
 gem 'kaminari'
+gem 'pg'
 gem 'kaminari-bootstrap'
+gem 'sidekiq'
 gem 'friendly_id'
 gem 'ransack'
 # Use CoffeeScript for .coffee assets and views
@@ -53,6 +53,8 @@ group :development, :test do
   gem 'ffaker'
   gem 'rspec-rails'
   gem 'shoulda'
+  gem 'rails-erd'
+  gem 'dotenv-rails'
   gem 'shoulda-matchers'
   gem 'overcommit'
   gem 'rubocop'
@@ -65,6 +67,7 @@ group :development, :test do
   gem 'brakeman'
   gem 'better_errors'
   gem 'benchmark-ips'
+  gem 'flog'
   gem 'fasterer'
 end
 

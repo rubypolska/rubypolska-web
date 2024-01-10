@@ -49,7 +49,7 @@ class Post < ApplicationRecord
     words = body.split.size
     (words / words_per_minute.to_f).ceil
   end
-  
+
   def reading_time
     minutes = calculate_reading_time
     "#{minutes} #{'minute'.pluralize(minutes)} read"
