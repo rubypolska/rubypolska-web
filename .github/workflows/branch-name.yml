@@ -11,4 +11,4 @@ jobs:
           allowed_prefixes: 'feature/,stable/,fix/, style/'
           ignore: master,develop
           min_length: 5
-          max_length: 20
+          max_length: 30
