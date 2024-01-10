@@ -50,5 +50,4 @@ PrePush:
   CheckCoverage:
     enabled: true
     description: 'Checking code coverage'
-    required_executable: 'simplecov'
     command: ['sh', 'scripts/check_coverage.sh']
