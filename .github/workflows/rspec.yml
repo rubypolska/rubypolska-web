@@ -34,7 +34,7 @@ jobs:
     - name: Install dependencies
       run: |
         sudo apt-get update -qq
-        gem install bundler
+        gem install bundler -v 2.4.22
         bundle install
 
     - name: Setup database
