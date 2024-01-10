@@ -15,6 +15,12 @@ up:
 console:
 	rails c
 
+attach:
+	docker exec -it rubypolsce-web-1 bash
+
+generate-erd:
+	docker exec rubypolsce-web-1 erd .
+
 start:
 	RAILS_ENV=development bash rails server -p 3000
 
