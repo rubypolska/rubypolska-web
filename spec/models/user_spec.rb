@@ -28,5 +28,14 @@ RSpec.describe User, type: :model do
     it { should validate_presence_of(:email) }
     it { should validate_uniqueness_of(:email).case_insensitive }
   end
-end
 
+  describe 'traits' do
+    describe '.with_posts' do
+      let!(:user) { FactoryBot.create(:user, :admin, :with_posts) }
+
+      it 'should return 5 posts for a user' do
+        expect(user.posts.count).to eq(5)
+      end
+    end
+  end
+end

@@ -6,8 +6,10 @@ Rails.application.routes.draw do
   devise_for :users, {}
 
   # Application
-  root to: 'home#index'
-  namespace :blog do
-    resources :posts, only: [:index, :show]
+  scope "(:locale)", locale: /en|pl/ do
+    root to: 'home#index'
+    namespace :blog do
+      resources :posts, only: [:index, :show]
+    end
   end
 end

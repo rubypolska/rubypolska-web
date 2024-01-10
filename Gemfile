@@ -47,6 +47,7 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'awesome_print'
+  gem 'bundle-audit'
   gem 'pry-rails'
   gem 'pry-byebug'
   gem 'ffaker'
@@ -64,6 +65,7 @@ group :development, :test do
   gem 'brakeman'
   gem 'better_errors'
   gem 'benchmark-ips'
+  gem 'fasterer'
 end
 
 group :development do

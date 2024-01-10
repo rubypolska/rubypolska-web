@@ -28,7 +28,7 @@ FactoryBot.define do
     end
 
     trait :with_posts do
-      after(:create) do |post, _user|
+      after(:create) do |user, _evaluator|
         create_list(:post, 5, user: user)
       end
     end

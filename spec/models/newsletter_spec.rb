@@ -74,6 +74,17 @@ RSpec.describe Newsletter, type: :model do
     end
   end
 
+  describe 'traits' do
+    describe '.disabled' do
+      let(:newsletter) { FactoryBot.create(:newsletter, :disabled) }
+
+      it 'create a newsletter already disabled by default', :aggregate_failures do
+        expect(newsletter).to be_disabled
+        expect(newsletter.token).to be_nil
+      end
+    end
+  end
+
   describe '.methods' do
     describe '#signup' do
       before { newsletter.signup }

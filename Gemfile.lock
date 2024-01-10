@@ -67,6 +67,11 @@ GEM
       rails (>= 4.0.0)
     brakeman (5.4.1)
     builder (3.2.4)
+    bundle-audit (0.1.0)
+      bundler-audit
+    bundler-audit (0.9.1)
+      bundler (>= 1.2.0, < 3)
+      thor (~> 1.0)
     byebug (11.1.3)
     childprocess (4.1.0)
     code_analyzer (0.5.5)
@@ -102,6 +107,8 @@ GEM
     factory_bot_rails (6.4.3)
       factory_bot (~> 6.4)
       railties (>= 5.0.0)
+    fasterer (0.11.0)
+      ruby_parser (>= 3.19.1)
     ffaker (2.21.0)
     ffi (1.16.3)
     flay (2.13.1)
@@ -379,10 +386,12 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap3-rails
   brakeman
+  bundle-audit
   byebug
   coffee-rails (~> 4.2)
   devise
   factory_bot_rails
+  fasterer
   ffaker
   foreman
   friendly_id

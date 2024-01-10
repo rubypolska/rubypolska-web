@@ -1,0 +1,16 @@
+pl:
+  header:
+    nav:
+      home: 'Strona główna'
+      partner: 'Zostań partnerem'
+      blog: 'Blog'
+  hero:
+    subtitle:
+      one: 'Polska społeczność'
+      two: 'programistów'
+      three: 'i'
+      four: 'entuzjastów'
+      five: 'Ruby'
+  footer:
+    made_with: 'Stworzone z <3 w Radomiu'
+    copyright: 'Wszelkie prawa zastrzeżone'

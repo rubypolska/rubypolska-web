@@ -10,13 +10,13 @@
         <span class="icon-bar"></span>
       </button>
 
-      <%= link_to root_path, 
+      <%= link_to root_path,
         class: 'navbar-brand' do %>
           Ruby Polska
       <% end %>
     </div>
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
+  <!-- Collect the nav links, forms, and other content for toggling -->
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
       </ul>
@@ -31,9 +31,18 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><%= link_to 'Become a partner', '#' %></li>
-        <li><%= link_to 'Home', root_path %></li>
-        <li><%= link_to 'Blog', blog_posts_path %></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            <%= I18n.locale.upcase %>
+            <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to 'EN', url_for(locale: 'en') %></li>
+            <li><%= link_to 'PL', url_for(locale: 'pl') %></li>
+          </ul>
+        </li>
+        <li><%= link_to t('header.nav.partner'), '#' %></li>
+        <li><%= link_to t('header.nav.home'), root_path %></li>
+        <li><%= link_to t('header.nav.blog'), blog_posts_path %></li>
       </ul>
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->

@@ -6,8 +6,8 @@
         <div class='row'>
           <div class='col-md-8'>
             <p>Ruby Polska, 2024 - <%= Date.today.year %></p>
-            <p>Made with <i class="fa-solid fa-heart"></i> in <strong>Radom</strong></p>
-            <p>&copy All rights reserved</p>
+            <p><%= t('footer.made_with') %></p>
+            <p>&copy <%= t('footer.copyright') %></p>
           </div>
 
           <div class="col-md-4">
@@ -43,7 +43,7 @@
                 <i class="fa-regular fa-envelope"></i>
                 witaj@rubypolska.pl
               <% end %>
-            </p>   
+            </p>
           </div>
         </div>
       </div>

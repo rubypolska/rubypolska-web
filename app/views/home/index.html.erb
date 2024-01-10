@@ -7,8 +7,11 @@
     <div class="row">
       <div class="col-md-12">
         <h1 class='title'>Ruby <br /><span class='polska'>Polska</span></h1>
-        <p class='subtitle'>Polish Ruby <span class='bold'>developers</span><br />and 
-        <span class='bold'>enthusiast</span> community.</p>
+        <p class='subtitle'><%= t('hero.subtitle.one') %>
+        <span class='bold'><%= t('hero.subtitle.two')%></span><br />
+        <%= t('hero.subtitle.three') %>
+        <span class='bold'><%= t('hero.subtitle.four') %></span>
+        <%= t('hero.subtitle.five') %>.</p>
         <ul class='list-unstyled list-inline actions'>
           <li>
             <%= link_to 'https://discord.gg/myk3SHsz5g',
@@ -28,7 +31,7 @@
           </li>
           <li>
             <%= link_to 'https://github.com/rubypolska',
-             target: :_blank, 
+             target: :_blank,
              class: 'btn btn-primary btn-lg' do %>
               <i class="fa-brands fa-github"></i>
               Github
