@@ -17,7 +17,7 @@ PreCommit:
       - '**/db/structure.sql'
 
   EsLint:
-    enabled: false # Change this to `true` if you want to enable ESLint
+    enabled: false
     on_warn: warn
 
   ScssLint:
@@ -45,3 +45,10 @@ PostMerge:
 PostRewrite:
   ALL:
     quiet: true
+
+PrePush:
+  CheckCoverage:
+    enabled: true
+    description: 'Checking code coverage'
+    required_executable: 'simplecov'
+    command: ['sh', 'scripts/check_coverage.sh']

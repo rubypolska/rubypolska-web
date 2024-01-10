@@ -20,6 +20,9 @@
 # Ignore TODO file
 todo.txt
 
+# Envfiles
+.env
+
 # Ignore Mac OS Files
 .DS_Store
 

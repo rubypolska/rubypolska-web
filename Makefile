@@ -49,9 +49,6 @@ foreman:
 run-tests:
 	bundle exec rspec spec
 
-run-test: path
-	bundle exec rspec path
-
 overcommit:
 	overcommit -i
 	overcommit --sign pre-commit
