@@ -1,0 +1,47 @@
+name: RSpec Tests
+
+on: [push, pull_request]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    services:
+      db:
+        image: postgres:11
+        env:
+          POSTGRES_DB: rubypolska_test
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+        ports:
+          - 5432:5432
+
+        # Set health checks to wait until db is actually ready
+        options: >-
+          --health-cmd pg_isready
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 2.7 # or the version you need
+
+    - name: Install dependencies
+      run: |
+        sudo apt-get update -qq
+        gem install bundler
+        bundle install
+
+    - name: Setup database
+      run: |
+        cp config/database.yml.ci config/database.yml
+        bundle exec rake db:create
+        bundle exec rake db:schema:load
+
+    - name: Run RSpec
+      run: bundle exec rspec
