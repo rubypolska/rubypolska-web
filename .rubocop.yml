@@ -1,0 +1,69 @@
+# .rubocop.yml
+require:
+  - rubocop-rails
+  - rubocop-performance
+  - rubocop-rspec
+  - rubocop-factory_bot
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - 'db/schema.rb'
+    - 'node_modules/**/*'
+    - 'bin/*'
+    - 'vendor/**/*'
+    - 'config/initializers/*'
+    - 'config/environments/*'
+
+# Rails specific settings
+Rails:
+  Enabled: true
+
+# Lint cops
+Lint:
+  Enabled: true
+
+# Style cops
+Style:
+  Enabled: true
+  StringLiterals:
+    EnforcedStyle: single_quotes
+  Documentation:
+    Enabled: false
+
+# Performance cops
+Performance:
+  Enabled: true
+
+# Factory Bot
+FactoryBot/AttributeDefinedStatically:
+  Enabled: true
+
+# Metrics cops
+Metrics/BlockLength:
+  Max: 25
+  Exclude:
+    - 'config/routes.rb'
+    - 'spec/**/*.rb'
+Metrics/MethodLength:
+  Max: 15
+Metrics/AbcSize:
+  Max: 15
+Metrics/ClassLength:
+  Max: 100
+
+# Layout cops
+Layout/LineLength:
+  Max: 120
+
+# If using RSpec, include these
+RSpec:
+  Enabled: true
+RSpec/DescribeSymbol:
+  Enabled: false
+RSpec/ImplicitSubject:
+  Enabled: false
+
+# If using FactoryBot, include these
+FactoryBot:
+  Enabled: true

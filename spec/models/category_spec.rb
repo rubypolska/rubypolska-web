@@ -20,7 +20,7 @@
 require 'rails_helper'
 
 RSpec.describe Category, type: :model do
- let(:category) { FactoryBot.build(:category) }
+  let(:category) { FactoryBot.build(:category) }
 
   describe 'valid object' do
     it 'is valid with valid attributes' do
