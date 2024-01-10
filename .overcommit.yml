@@ -7,7 +7,7 @@ PreCommit:
 
   BundleAudit:
     enabled: true
-  
+
   Fasterer:
     enabled: true
 
