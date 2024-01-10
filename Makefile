@@ -25,7 +25,7 @@ start:
 	RAILS_ENV=development bash rails server -p 3000
 
 clean:
-	sudo chwon -R ${USER}:${USER} .
+	sudo chown -R ${USER} .
 	rm -rf ./coverage ./tmp/* ./log/*
 
 down:
