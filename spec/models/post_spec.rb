@@ -28,7 +28,12 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  let(:post) { FactoryBot.build(:post) }
+  let(:user) { FactoryBot.create(:user, :admin) }
+  let(:post) do
+    PostDecorator.new(
+      FactoryBot.build(:post, body: 'This post has ten words in total.', user: user)
+    )
+  end
 
   describe 'valid object' do
     it 'should be valid with attributes' do
@@ -62,16 +67,16 @@ RSpec.describe Post, type: :model do
   end
 
   describe '.methods' do
+    before { post.decorate }
+
     describe '#calculate_reading_time' do
       it 'calculates reading time based on word count' do
-        post.body = "This post has ten words in total."
         expect(post.calculate_reading_time).to eq(1)
       end
     end
 
     describe '#reading_time' do
       it 'return reading time in minutes' do
-        post.body = "This post has ten words in total."
         expect(post.reading_time).to eq('1 minute read')
       end
     end

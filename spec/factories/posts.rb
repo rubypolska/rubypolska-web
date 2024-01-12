@@ -29,7 +29,7 @@ require 'open-uri'
 
 FactoryBot.define do
   factory :post do
-    title { FFaker::Lorem.sentence }
+  title { FFaker::Lorem.sentence }
     body { FFaker::Lorem.paragraphs(rand(15..18)).join("<br/><br/>") }
     tags { FFaker::Lorem.words.join(', ') }
     category

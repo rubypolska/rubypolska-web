@@ -21,6 +21,10 @@ gem 'bootstrap3-rails'
 gem 'devise'
 gem 'kaminari'
 gem 'pg'
+gem 'draper'
+gem 'active_model_serializers'
+gem 'fast_jsonapi'
+gem 'aws-sdk-s3'
 gem 'kaminari-bootstrap'
 gem 'sidekiq'
 gem 'friendly_id'
@@ -63,6 +67,8 @@ group :development, :test do
   gem 'simplecov'
   gem 'annotate'
   gem 'rubycritic'
+  gem 'rails-erd'
+  gem 'letter_opener'
   gem 'factory_bot_rails'
   gem 'rails_best_practices'
   gem 'rubocop', require: false
@@ -87,7 +93,7 @@ group :development do
 end
 
 group :test do
-
+  gem 'database_cleaner-active_record'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

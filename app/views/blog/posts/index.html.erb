@@ -7,13 +7,15 @@
     <div class="row">
       <div class="col-md-12 text-center">
         <h1 class="bold">Ruby Polska Blog</h1>
-        <p>Join thousands of developers and accelerate towards your goals.<br>
-        Transform your career into a journey of continuous evolution through<br/> the best technologies</p>
+        <p>
+          <%= t('blog.hero.subtitle.line_one') %><br>
+          <%= t('blog.hero.subtitle.line_two') %><br/>
+          <%= t('blog.hero.subtitle.line_three') %></p>
         <br />
 
         <%= link_to '#',
         class: 'btn btn-default btn-lg' do %>
-          Signup our newsletter
+          <%= t('blog.hero.newsletter.signup') %>
         <% end %>
       </div>
     </div>

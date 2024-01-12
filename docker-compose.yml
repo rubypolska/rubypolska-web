@@ -1,5 +1,6 @@
   version: '3'
   services:
+    # Database
     db:
       image: postgres
       volumes:
@@ -11,6 +12,7 @@
       ports:
         - "5432:5432"
 
+    # Web Application
     web:
       build: .
       command: rails s -p 3000 -b '0.0.0.0'
@@ -29,6 +31,19 @@
       stdin_open: true
       tty: true
 
+    # Minio Storage
+    minio:
+      image: minio/minio
+      volumes:
+        - minio-data:/data
+      ports:
+        - "9000:9000"
+      environment:
+        - MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY}
+        - MINIO_SECRET_KEY=${MINIO_SECRET_KEY}
+      command: /minio.sh
+
+    # Nginx
     nginx:
       image: nginx:latest
       ports:
@@ -38,7 +53,7 @@
       depends_on:
         - web
 
-    # haproxy:
+    # Haproxy:
     #   image: haproxy:latest
     #   ports:
     #     - "80:80"
@@ -49,3 +64,4 @@
 
   volumes:
     postgres-data:
+    minio-data:

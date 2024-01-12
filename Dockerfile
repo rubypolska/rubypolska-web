@@ -1,4 +1,5 @@
 # Use an official Ruby runtime as a parent image
+
 FROM ruby:2.7
 
 # Install Node.js and build dependencies for native gems
@@ -13,6 +14,10 @@ COPY Gemfile* ./
 
 # Install any needed gems specified in Gemfile
 RUN bundle install --jobs 4
+
+# Copy minIO run script
+COPY scripts/minio.sh /minio.sh
+RUN chmod +x /minio.sh
 
 # Copy the rest of your app's source code from your host to your image filesystem.
 COPY . .

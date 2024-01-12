@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: posts
@@ -47,16 +49,4 @@ class Post < ApplicationRecord
   # Relationships
   belongs_to :category
   belongs_to :user
-
-  # Methods
-  def calculate_reading_time
-    words_per_minute = 200
-    words = body.split.size
-    (words / words_per_minute.to_f).ceil
-  end
-
-  def reading_time
-    minutes = calculate_reading_time
-    "#{minutes} #{'minute'.pluralize(minutes)} read"
-  end
 end
