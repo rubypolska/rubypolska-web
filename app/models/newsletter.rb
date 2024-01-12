@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: newsletters
@@ -11,9 +13,14 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
+# Indexes
+#
+#  index_newsletters_on_email  (email) UNIQUE
+#  index_newsletters_on_token  (token) UNIQUE
+#
 class Newsletter < ApplicationRecord
   # Enum
-  enum status: [:enabled, :disabled]
+  enum status: { enabled: 0, disabled: 1 }
 
   # Callbacks
   after_create :signup
@@ -25,20 +32,14 @@ class Newsletter < ApplicationRecord
 
   # Methods
   def self.by_token(token)
-    find_by_token(token)
+    find_by(token: token)
   end
 
   def signup
-    update(status: :enabled, token: generate_token)
+    NewsletterSignup.call(newsletter: self)
   end
 
   def cancel
-    update(status: :disabled, token: nil)
-  end
-
-  private
-
-  def generate_token
-    SecureRandom.urlsafe_base64(8)
+    NewsletterCancel.call(newsletter: self)
   end
 end

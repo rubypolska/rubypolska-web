@@ -13,7 +13,7 @@ up:
 	docker-compose up
 
 console:
-	rails c
+	docker exec -it rubyposce-web rails c
 
 attach:
 	docker exec -it rubypolsce-web-1 bash
@@ -22,7 +22,7 @@ generate-erd:
 	docker exec rubypolsce-web-1 erd .
 
 start:
-	RAILS_ENV=development bash rails server -p 3000
+	docker exec -it rubypolsce-web-1 RAILS_ENV=development bash rails server -p 3000
 
 clean:
 	sudo chown -R ${USER} .
@@ -40,11 +40,17 @@ dbreset:
 create-env-file:
 	cp .env.sample .env
 
+scss-lint:
+	bundle exec scss-lint app/assets/stylesheets/
+
 fasterer:
 	fasterer .
 
 best-practices:
 	rails_best_practices .
+
+rubocop:
+	rubocop .
 
 rubycritic:
 	rubycritic .

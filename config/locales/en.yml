@@ -11,6 +11,14 @@ en:
       three: 'and'
       four: 'enthusiast'
       five: 'community'
+  blog:
+    hero:
+      subtitle:
+        line_one: 'Join thousands of developers and accelerate towards your goals.'
+        line_two: 'Transform your career into a journey of continuous evolution through'
+        line_three: 'the best technologies'
+      newsletter:
+        signup: 'Signup our newsletter'
   footer:
     made_with: 'Made with <3 in Radom'
     copyright: 'All rights reserved.'

@@ -1,5 +1,6 @@
   version: '3'
   services:
+    # Database
     db:
       image: postgres
       volumes:
@@ -11,6 +12,7 @@
       ports:
         - "5432:5432"
 
+    # Web Application
     web:
       build: .
       command: rails s -p 3000 -b '0.0.0.0'
@@ -29,6 +31,7 @@
       stdin_open: true
       tty: true
 
+    # Nginx
     nginx:
       image: nginx:latest
       ports:
@@ -38,7 +41,7 @@
       depends_on:
         - web
 
-    # haproxy:
+    # Haproxy:
     #   image: haproxy:latest
     #   ports:
     #     - "80:80"

@@ -11,6 +11,14 @@ pl:
       three: 'i'
       four: 'entuzjastów'
       five: 'Ruby'
+  blog:
+    hero:
+      subtitle:
+        line_one: 'Dołącz do tysięcy programistów i przyspiesz w kierunku swoich celów.'
+        line_two: 'Przekształć swoją karierę w podróż ciągłego rozwoju poprzez'
+        line_three: 'najlepsze technologie'
+      newsletter:
+        signup: 'Zapisz się na nasz newsletter'
   footer:
     made_with: 'Stworzone z <3 w Radomiu'
     copyright: 'Wszelkie prawa zastrzeżone'

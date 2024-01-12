@@ -1,4 +1,5 @@
 # Use an official Ruby runtime as a parent image
+
 FROM ruby:2.7
 
 # Install Node.js and build dependencies for native gems

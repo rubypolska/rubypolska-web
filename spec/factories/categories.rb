@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 
 # == Schema Information
 #
@@ -12,6 +13,7 @@
 #
 # Indexes
 #
+#  index_categories_on_name     (name) UNIQUE
 #  index_categories_on_user_id  (user_id)
 #
 # Foreign Keys
