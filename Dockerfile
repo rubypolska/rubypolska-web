@@ -16,8 +16,8 @@ COPY Gemfile* ./
 RUN bundle install --jobs 4
 
 # Copy minIO run script
-COPY scripts/minio.sh /minio.sh
-RUN chmod +x /minio.sh
+# COPY scripts/minio.sh /minio.sh
+# RUN chmod +x /minio.sh
 
 # Copy the rest of your app's source code from your host to your image filesystem.
 COPY . .
