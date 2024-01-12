@@ -64,4 +64,4 @@
 
   volumes:
     postgres-data:
-    minio-data:
+    # minio-data:
