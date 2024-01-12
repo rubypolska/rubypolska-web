@@ -4,11 +4,11 @@ require 'rails_helper'
 
 RSpec.describe NewsletterCancel, type: :interactor do
   describe '.call' do
-    subject(:context) { NewsletterCancel.call(newsletter: newsletter) }
+    subject(:context) { described_class.call(newsletter: newsletter) }
+
+    let(:newsletter) { create(:newsletter, status: :enabled) }
 
     context 'when update is successfull' do
-      let(:newsletter) { FactoryBot.create(:newsletter, status: :enabled) }
-
       it 'disables the newsletter', :aggregate_failures do
         expect(context).to be_a_success
         expect(newsletter.reload.status).to eq('disabled')
@@ -17,8 +17,6 @@ RSpec.describe NewsletterCancel, type: :interactor do
     end
 
     context 'when update fails' do
-      let(:newsletter) { FactoryBot.create(:newsletter, status: :enabled) }
-
       before do
         newsletter.errors.add(:base, 'Record is invalid.')
 
@@ -34,7 +32,6 @@ RSpec.describe NewsletterCancel, type: :interactor do
     end
 
     context 'when a standard error is raised' do
-      let(:newsletter) { FactoryBot.create(:newsletter, status: :enabled) }
       let(:error_message) { 'Something went wrong.' }
 
       before do

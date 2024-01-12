@@ -4,11 +4,11 @@ require 'rails_helper'
 
 RSpec.describe NewsletterSignup, type: :interactor do
   describe '.call' do
-    subject(:context) { NewsletterSignup.call(newsletter: newsletter) }
+    subject(:context) { described_class.call(newsletter: newsletter) }
+
+    let(:newsletter) { create(:newsletter, status: :disabled) }
 
     context 'when the signup is successfull' do
-      let(:newsletter) { FactoryBot.create(:newsletter, status: :disabled) }
-
       it 'enables the newsletter and sets a token', :aggregate_failures do
         expect(context).to be_a_success
         expect(newsletter.reload.status).to eq('enabled')
@@ -16,10 +16,10 @@ RSpec.describe NewsletterSignup, type: :interactor do
       end
     end
 
-    context 'When the signup fails due to validation errors' do
-      let(:newsletter) { FactoryBot.build(:newsletter, status: :disabled, email: nil) }
+    context 'when the signup fails due to validation errors' do
+      subject(:context) { described_class.call(newsletter: newsletter) }
 
-      subject(:context) { NewsletterSignup.call(newsletter: newsletter) }
+      let(:newsletter) { build(:newsletter, status: :disabled, email: nil) }
 
       it 'fails and sets the error message', :aggregate_failures do
         expect(context).to be_a_failure
@@ -27,11 +27,10 @@ RSpec.describe NewsletterSignup, type: :interactor do
       end
     end
 
-    context 'When a standard error occurs' do
-      let(:newsletter) { FactoryBot.create(:newsletter, status: :disabled) }
-      let(:error_message) { 'Something went wrong' }
+    context 'when a standard error occurs' do
+      subject(:context) { described_class.call(newsletter: newsletter) }
 
-      subject(:context) { NewsletterSignup.call(newsletter: newsletter) }
+      let(:error_message) { 'Something went wrong' }
 
       before do
         allow(newsletter).to receive(:update!)

@@ -3,12 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe PostDecorator, type: :decorator do
-  let(:user) { FactoryBot.create(:user, :admin) }
+  let(:user) { create(:user, :admin) }
 
   let(:post) do
-    PostDecorator.new(
-      FactoryBot.build(:post, body: 'This post has ten words in total.', user: user)
-    )
+    described_class
+      .new(build(:post, body: 'This post has ten words in total.', user: user))
   end
 
   describe '#calculate_reading_time' do

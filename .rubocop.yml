@@ -9,6 +9,8 @@ AllCops:
   NewCops: enable
 
   Exclude:
+    - 'Gemfile/'
+    - 'bin/**/*'
     - 'db/**/*'
     - 'config/**/*'
     - 'script/**/*'
@@ -26,6 +28,9 @@ Rails:
 # Lint cops
 Lint:
   Enabled: true
+
+Style/Documentation:
+  Enabled: false
 
 # Style cops
 Style:

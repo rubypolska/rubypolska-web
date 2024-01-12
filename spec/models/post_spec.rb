@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: posts
@@ -27,43 +29,43 @@
 #
 require 'rails_helper'
 
-RSpec.describe Post, type: :model do
-  let(:user) { FactoryBot.create(:user, :admin) }
+RSpec.describe Post do
+  let(:user) { create(:user, :admin) }
   let(:post) do
     PostDecorator.new(
-      FactoryBot.build(:post, body: 'This post has ten words in total.', user: user)
+      build(:post, body: 'This post has ten words in total.', user: user)
     )
   end
 
   describe 'valid object' do
-    it 'should be valid with attributes' do
+    it 'is valid with valid attributes' do
       expect(post).to be_valid
     end
   end
 
   describe 'scopes' do
     describe '.featured' do
-      let!(:featured_posts) { FactoryBot.create_list(:post, 3, featured: true) }
-      let!(:common_posts) { FactoryBot.create_list(:post, 2, featured: false) }
+      let!(:featured_posts) { create_list(:post, 3, featured: true) }
+      let!(:common_posts) { create_list(:post, 2, featured: false) }
 
       it 'returns only featured posts' do
         expect(described_class.featured).to match_array(featured_posts)
       end
 
       it 'does not return non-featured posts' do
-        expect(described_class.featured).to_not match_array(common_posts)
+        expect(described_class.featured).not_to match_array(common_posts)
       end
     end
   end
 
   describe 'validations' do
-    it { should validate_presence_of(:title) }
-    it { should validate_presence_of(:body) }
+    it { is_expected.to validate_presence_of(:title) }
+    it { is_expected.to validate_presence_of(:body) }
   end
 
   describe 'relationships' do
-    it { should belong_to(:category) }
-    it { should belong_to(:user) }
+    it { is_expected.to belong_to(:category) }
+    it { is_expected.to belong_to(:user) }
   end
 
   describe '.methods' do
