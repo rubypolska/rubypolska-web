@@ -46,7 +46,7 @@ RSpec.describe Post do
   describe 'scopes' do
     describe '.featured' do
       let!(:featured_posts) { create_list(:post, 3, featured: true) }
-      let!(:common_posts) { create_list(:post, 2, featured: false) }
+      let!(:common_posts) { create_list(:post, 2, title: "Post #{rand(1000)}", featured: false) }
 
       it 'returns only featured posts' do
         expect(described_class.featured).to match_array(featured_posts)
