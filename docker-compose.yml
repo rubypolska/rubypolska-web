@@ -31,18 +31,6 @@
       stdin_open: true
       tty: true
 
-    # Minio Storage
-    # minio:
-    #   image: minio/minio
-    #   volumes:
-    #     - minio-data:/data
-    #   ports:
-    #     - "9000:9000"
-    #   environment:
-    #     - MINIO_ACCESS_KEY=${MINIO_ACCESS_KEY}
-    #     - MINIO_SECRET_KEY=${MINIO_SECRET_KEY}
-    #   command: /minio.sh
-
     # Nginx
     nginx:
       image: nginx:latest
@@ -64,4 +52,3 @@
 
   volumes:
     postgres-data:
-    # minio-data:
