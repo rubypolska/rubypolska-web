@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: newsletters
@@ -10,6 +12,11 @@
 #  token      :string
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
+#
+# Indexes
+#
+#  index_newsletters_on_email  (email) UNIQUE
+#  index_newsletters_on_token  (token) UNIQUE
 #
 FactoryBot.define do
   factory :newsletter do

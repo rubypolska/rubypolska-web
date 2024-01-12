@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: posts
@@ -30,7 +32,7 @@ require 'open-uri'
 FactoryBot.define do
   factory :post do
     title { FFaker::Lorem.sentence }
-    body { FFaker::Lorem.paragraphs(rand(15..18)).join("<br/><br/>") }
+    body { FFaker::Lorem.paragraphs(rand(15..18)).join('<br/><br/>') }
     tags { FFaker::Lorem.words.join(', ') }
     category
     user
@@ -45,10 +47,10 @@ FactoryBot.define do
 
     after(:build) do |post, _evaluator|
       image_url = FFaker::Image.url
-      file = URI.open(image_url)
+      file = URI.open(image_url) # rubocop:disable Security/Open
       post.thumbnail.attach(
-        io: file, 
-        filename: 'temp_image.jpg', 
+        io: file,
+        filename: 'temp_image.jpg',
         content_type: 'image/jpeg'
       )
     end

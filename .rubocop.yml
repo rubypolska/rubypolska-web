@@ -7,13 +7,19 @@ require:
 
 AllCops:
   NewCops: enable
+
   Exclude:
-    - 'db/schema.rb'
-    - 'node_modules/**/*'
-    - 'bin/*'
+    - 'Gemfile/'
+    - 'bin/**/*'
+    - 'db/**/*'
+    - 'config/**/*'
+    - 'script/**/*'
     - 'vendor/**/*'
-    - 'config/initializers/*'
-    - 'config/environments/*'
+    - 'lib/tasks/auto_annotate_models.rake'
+    - 'spec/rails_helper.rb'
+    - 'spec/spec_helper.rb'
+    - 'spec/fixtures/**/*'
+    - 'tmp/**/*'
 
 # Rails specific settings
 Rails:
@@ -22,6 +28,9 @@ Rails:
 # Lint cops
 Lint:
   Enabled: true
+
+Style/Documentation:
+  Enabled: false
 
 # Style cops
 Style:

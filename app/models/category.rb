@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: categories
@@ -11,6 +13,7 @@
 #
 # Indexes
 #
+#  index_categories_on_name     (name) UNIQUE
 #  index_categories_on_user_id  (user_id)
 #
 # Foreign Keys

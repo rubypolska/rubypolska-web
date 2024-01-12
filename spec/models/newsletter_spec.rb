@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # == Schema Information
 #
 # Table name: newsletters
@@ -11,28 +13,33 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #
+# Indexes
+#
+#  index_newsletters_on_email  (email) UNIQUE
+#  index_newsletters_on_token  (token) UNIQUE
+#
 require 'rails_helper'
 
-RSpec.describe Newsletter, type: :model do
-  let(:newsletter) { FactoryBot.build(:newsletter) }
+RSpec.describe Newsletter do
+  let(:newsletter) { build(:newsletter) }
 
   describe 'valid object' do
-    it 'should be valid with valid attributes' do
+    it 'is valid with valid attributes' do
       expect(newsletter).to be_valid
     end
   end
 
   describe 'scopes' do
     describe '.by_token' do
-      let!(:newsletter) { FactoryBot.create(:newsletter, :enabled) }
-      let!(:newsletter_2) { FactoryBot.create(:newsletter, :enabled) }
+      let!(:newsletter) { create(:newsletter, :enabled) }
+      let!(:newsletter2) { create(:newsletter, :enabled) }
 
       it 'returns the newsletter with the matching token' do
         expect(described_class.by_token(newsletter.token)).to eq(newsletter)
       end
 
       it 'does not return the newsletter with a different token' do
-        expect(described_class.by_token(newsletter_2.token)).not_to eq(newsletter)
+        expect(described_class.by_token(newsletter2.token)).not_to eq(newsletter)
       end
 
       it 'returns nil if no newsletter matches the token' do
@@ -42,19 +49,19 @@ RSpec.describe Newsletter, type: :model do
   end
 
   describe 'validations', :aggregate_failures do
-    it { should validate_presence_of(:name) }
-    it { should validate_presence_of(:email) }
-    it { should validate_uniqueness_of(:email) }
+    it { is_expected.to validate_presence_of(:name) }
+    it { is_expected.to validate_presence_of(:email) }
+    it { is_expected.to validate_uniqueness_of(:email) }
 
     describe 'token uniqueness' do
-      let!(:newsletter) { FactoryBot.create(:newsletter, :enabled) }
+      let!(:newsletter) { create(:newsletter, :enabled) }
       let(:token) { newsletter.token }
 
-      let(:newsletter_2) { FactoryBot.build(:newsletter, token: token) }
+      let(:newsletter2) { build(:newsletter, token: token) }
 
       it 'validates case-insensitive uniqueness of token', :aggregate_failures do
-        expect(newsletter_2).not_to be_valid
-        expect(newsletter_2.errors[:token]).to include('has already been taken')
+        expect(newsletter2).not_to be_valid
+        expect(newsletter2.errors[:token]).to include('has already been taken')
       end
     end
   end
@@ -66,9 +73,9 @@ RSpec.describe Newsletter, type: :model do
   end
 
   describe 'callbacks' do
-    let(:newsletter) { FactoryBot.create(:newsletter) }
+    let(:newsletter) { create(:newsletter) }
 
-    it 'calls signup after creation' do
+    it 'calls signup after creation', :aggregate_failures do
       expect(newsletter).to be_enabled
       expect(newsletter.token).not_to be_nil
     end
@@ -76,7 +83,7 @@ RSpec.describe Newsletter, type: :model do
 
   describe 'traits' do
     describe '.disabled' do
-      let(:newsletter) { FactoryBot.create(:newsletter, :disabled) }
+      let(:newsletter) { create(:newsletter, :disabled) }
 
       it 'create a newsletter already disabled by default', :aggregate_failures do
         expect(newsletter).to be_disabled
@@ -96,7 +103,7 @@ RSpec.describe Newsletter, type: :model do
     end
 
     describe '#cancel' do
-      let(:newsletter) { FactoryBot.create(:newsletter, :enabled) }
+      let(:newsletter) { create(:newsletter, :enabled) }
 
       before { newsletter.cancel }
 
