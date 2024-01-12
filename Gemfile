@@ -70,6 +70,7 @@ group :development, :test do
   gem 'annotate'
   gem 'rubycritic'
   gem 'rails-erd'
+  gem 'scss_lint'
   gem 'letter_opener'
   gem 'factory_bot_rails'
   gem 'rails_best_practices'

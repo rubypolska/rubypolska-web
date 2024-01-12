@@ -40,7 +40,7 @@ dbreset:
 create-env-file:
 	cp .env.sample .env
 
-css-lint:
+scss-lint:
 	bundle exec scss-lint app/assets/stylesheets/
 
 fasterer:
